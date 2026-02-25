@@ -10,7 +10,11 @@ MKRIoTCarrier carrier;
 
 uint32_t corbranca = carrier.leds.Color(255,255,255);
 
+
+
 void setup() {
+  Serial.begin(9600);
+  delay(2000);
   carrier.noCase();
   carrier.begin();
   carrier.leds.fill(corbranca, 0 ,5);
@@ -63,9 +67,19 @@ void parar(){
   analogWrite(PIN_ENB, 0);
 }
 
-void loop() {
-  andaTras();
-  delay(1000);
-  andaFrente();
-  delay(1000);
-}
+int r, g, b;
+
+void loop(){
+
+    if (carrier.Light.colorAvailable()){
+     carrier.Light.readColor(r, g, b); //read rgb color values
+
+      // check if color/light is bright enough
+      if (r >= 135 && g >= 135 && b >= 135){
+        Serial.println("estou no branco");
+      }
+      else{
+        Serial.println("estou no preto");
+      }
+    }
+  }

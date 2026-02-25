@@ -73,11 +73,14 @@ void loop(){
 
     if (carrier.Light.colorAvailable()){
      carrier.Light.readColor(r, g, b); //read rgb color values
-
+      Serial.println(String("r:")+r+String("g:")+g+String("b:")+b);
       // check if color/light is bright enough
       if (r >= 135 && g >= 135 && b >= 135){
         Serial.println("estou no branco");
         esquerda();
+      }
+      else if (r > 150 && r < 170 && g > 30 && g < 60 & b > 50 && b < 80) {
+        Serial.println("to in red");
       }
       else{
         direita();

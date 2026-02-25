@@ -51,7 +51,7 @@ void andaFrente() {
 void direita(){
   digitalWrite(PIN_IN1, LOW);
   digitalWrite(PIN_IN2, HIGH);
-  analogWrite(PIN_ENA, 255);
+  analogWrite(PIN_ENA, 150);
   analogWrite(PIN_ENB, 0);
 }
 
@@ -59,7 +59,7 @@ void esquerda(){
   analogWrite(PIN_ENA, 0);
   digitalWrite(PIN_IN3, LOW);
   digitalWrite(PIN_IN4, HIGH);
-  analogWrite(PIN_ENB, 255);
+  analogWrite(PIN_ENB, 150);
 }
 
 void parar(){
@@ -77,9 +77,12 @@ void loop(){
       // check if color/light is bright enough
       if (r >= 135 && g >= 135 && b >= 135){
         Serial.println("estou no branco");
+        esquerda();
       }
       else{
+        direita();
         Serial.println("estou no preto");
       }
     }
+    delay(50);
   }

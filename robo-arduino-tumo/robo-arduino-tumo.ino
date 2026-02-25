@@ -1,3 +1,6 @@
+#include <Arduino_MKRIoTCarrier.h>
+MKRIoTCarrier carrier;
+
 #define PIN_ENA A0
 #define PIN_IN1 16
 #define PIN_IN2 17
@@ -48,7 +51,7 @@ void esquerda(){
   analogWrite(PIN_ENB, 255);
 }
 
-void parar(){;
+void parar(){
   analogWrite(PIN_ENA, 0);
   analogWrite(PIN_ENB, 0);
 }

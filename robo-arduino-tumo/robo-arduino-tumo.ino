@@ -34,6 +34,25 @@ void andaFrente() {
 
 }
 
+void direita(){
+  digitalWrite(PIN_IN1, LOW);
+  digitalWrite(PIN_IN2, HIGH);
+  analogWrite(PIN_ENA, 255);
+  analogWrite(PIN_ENB, 0);
+}
+
+void esquerda(){
+  analogWrite(PIN_ENA, 0);
+  digitalWrite(PIN_IN3, LOW);
+  digitalWrite(PIN_IN4, HIGH);
+  analogWrite(PIN_ENB, 255);
+}
+
+void parar(){;
+  analogWrite(PIN_ENA, 0);
+  analogWrite(PIN_ENB, 0);
+}
+
 void loop() {
   andaTras();
   delay(1000);

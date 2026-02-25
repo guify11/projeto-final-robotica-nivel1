@@ -51,7 +51,7 @@ void andaFrente() {
 void direita(){
   digitalWrite(PIN_IN1, LOW);
   digitalWrite(PIN_IN2, HIGH);
-  analogWrite(PIN_ENA, 150);
+  analogWrite(PIN_ENA, 180);
   analogWrite(PIN_ENB, 0);
 }
 

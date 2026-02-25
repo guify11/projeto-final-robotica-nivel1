@@ -8,7 +8,14 @@ MKRIoTCarrier carrier;
 #define PIN_IN4 19
 #define PIN_ENB A5
 
+uint32_t corbranca = carrier.leds.Color(255,255,255);
+
 void setup() {
+  carrier.noCase();
+  carrier.begin();
+  carrier.leds.fill(corbranca, 0 ,5);
+  carrier.leds.setBrightness(255);
+  carrier.leds.show();
   pinMode(PIN_ENA, OUTPUT);
   pinMode(PIN_IN1, OUTPUT);
   pinMode(PIN_IN2, OUTPUT);

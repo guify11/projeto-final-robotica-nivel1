@@ -79,6 +79,15 @@ void loop(){
         Serial.println("to in red");
         parar();
         carrier.Buzzer.beep();
+        //celeberaçao
+        andaFrente();
+        delay(5000);
+        andaTras();
+        delay(10000);
+        direita();
+        delay(10000);
+        esquerda();
+        delay();
       }
       else
         if (r >= 135 && g >= 135 && b >= 135){

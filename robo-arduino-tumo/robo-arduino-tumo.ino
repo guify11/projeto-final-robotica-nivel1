@@ -9,7 +9,7 @@ MKRIoTCarrier carrier;
 #define PIN_ENB A5
 
 uint32_t corbranca = carrier.leds.Color(255,255,255);
-bool meta_alcançada = false
+// bool meta_alcançada = false
 
 
 void setup() {
@@ -74,23 +74,20 @@ void loop(){
     if (carrier.Light.colorAvailable()){
      carrier.Light.readColor(r, g, b); //read rgb color values
       Serial.println(String("r:")+r+String("g:")+g+String("b:")+b);
-      // check if color/light is bright enough
-      if (r >= 135 && g >= 135 && b >= 135){
-        if meta_alcançada != true{
+
+      if (r > 150 && r < 170 && g > 30 && g < 60 & b > 50 && b < 80) {
+        Serial.println("to in red");
+        parar();
+        carrier.Buzzer.beep();
+      }
+      else
+        if (r >= 135 && g >= 135 && b >= 135){
           Serial.println("estou no branco");
           esquerda();
-        }
-      }
-      else if (r > 150 && r < 170 && g > 30 && g < 60 & b > 50 && b < 80) {
-        Serial.println("to in red");
-        carrier.Buzzer.beep();
-        meta_alcançada = true
-      }
-      else{
-        if meta_alcançada != true{
+       }
+       else {
           direita();
           Serial.println("estou no preto");
-        }
-      }
+       }
     }
   }

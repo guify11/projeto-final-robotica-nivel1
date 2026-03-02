@@ -81,6 +81,7 @@ void loop(){
       }
       else if (r > 150 && r < 170 && g > 30 && g < 60 & b > 50 && b < 80) {
         Serial.println("to in red");
+        carrier.Buzzer.beep();
       }
       else{
         direita();

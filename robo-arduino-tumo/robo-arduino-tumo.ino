@@ -90,4 +90,7 @@ void loop(){
           Serial.println("estou no preto");
        }
     }
+    delay(50)
+    parar
+    delay(5)
   }
